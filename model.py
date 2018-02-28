@@ -1,4 +1,11 @@
-class Network(Chain):
+import chainer
+import chainer.functions as F
+import chainer.links as L
+import numpy as np
+from chainer import Chain
+
+
+class Network(chainer.Chain):
     def __init__(self, num_classes, gpu_id):
         super(Network, self).__init__()
         with self.init_scope():
@@ -54,7 +61,7 @@ class Network(Chain):
         return result
 
 
-class Classifier(Chain):
+class Classifier(chainer.Chain):
     def __init__(self, predictor):
         super(Classifier, self).__init__()
         with self.init_scope():
@@ -67,4 +74,3 @@ class Classifier(Chain):
         accuracy = F.accuracy(x, label)
         chainer.report({'loss': cross_entropy, 'accuracy': accuracy}, self)
         return cross_entropy
-        
