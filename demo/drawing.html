@@ -69,11 +69,20 @@
 
         /* Capturing Work */
         canvas.addEventListener('pointermove', function (e) {
-            last_mouse.x = mouse.x;
-            last_mouse.y = mouse.y;
+            var bodyRect   = document.body.getBoundingClientRect(),
+                elemRect   = canvas.getBoundingClientRect(),
+                topOffset  = elemRect.top - bodyRect.top,
+                leftOffset = elemRect.left - bodyRect.left;
 
-            mouse.x = e.pageX - this.offsetLeft;
-            mouse.y = e.pageY - this.offsetTop;
+            if (last_mouse !== {}) {
+                last_mouse.x = mouse.x;
+                last_mouse.y = mouse.y;
+            } else {
+                last_mouse.x = e.pageX - leftOffset;
+                last_mouse.y = e.pageY - topOffset
+            }
+            mouse.x = e.pageX - leftOffset;
+            mouse.y = e.pageY - topOffset;
         }, false);
 
 
@@ -91,6 +100,8 @@
 
         canvas.addEventListener('pointerup', function () {
             canvas.removeEventListener('pointermove', onPaint, false);
+            last_mouse = {};
+            mouse = {};
             submitted.drawing.push([inks_current_x, inks_current_y]);
         }, false);
 
