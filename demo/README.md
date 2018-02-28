@@ -2,7 +2,7 @@
 
 A HTML-based demo for [Quick, Draw!](https://quickdraw.withgoogle.com/).
 
-![image](/preview.png)
+![image](/demo/preview.png)
 
 ## Files
 
