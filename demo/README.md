@@ -2,6 +2,8 @@
 
 A HTML-based demo for [Quick, Draw!](https://quickdraw.withgoogle.com/).
 
+![image](/preview.png)
+
 ## Files
 
 - `drawing.html`: A simple drawing board implemented in JavaScript, supports mouse, touching and pen
