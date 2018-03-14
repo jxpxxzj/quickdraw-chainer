@@ -2,6 +2,8 @@
 
 Google [Quick, Draw!](https://quickdraw.withgoogle.com/) doodle recognition model implementation in [Chainer](https://github.com/chainer/chainer)
 
+Open source for 11th Software Innovation Contest.
+
 ## Files
 
 - `download.sh`, `filelist.txt`: fetch simplifed datasets from [Google Cloud Platform](https://console.cloud.google.com/storage/browser/quickdraw_dataset)
